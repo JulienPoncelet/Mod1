@@ -1,7 +1,14 @@
-// #include <mod1.hpp>
+#include <main.hpp>
 
-// void				checkfile(String filepath) {
-// 	std::cout << filepath << " " << file_size(filepath) << std::endl;
+void				checkfile(String filepath) {
+	struct stat 	buffer;
 
-// 	return ;
-// }
+	if (stat(filepath.c_str(), &buffer) != 0)
+		throw FileNotExist();
+
+	if (filepath.substr(filepath.find_last_of(".") + 1) != "mod1")
+		throw WrongExtension();
+
+	std::cout << "\033[032mFile " << filepath << " successfully checked" << std::endl;
+	return ;
+}

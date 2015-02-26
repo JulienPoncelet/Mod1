@@ -3,7 +3,7 @@ NAME = mod1
 DIRSRC = ./srcs/
 DIROBJ = ./.obj/
 
-SRC  = 	mod1.cpp\
+SRC  = 	main.cpp\
 		checkfile.cpp
 
 OBJ = $(SRC:.cpp=.o)

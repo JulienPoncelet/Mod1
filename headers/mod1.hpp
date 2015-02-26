@@ -1,11 +1,17 @@
-// #include <iostream>
-// #include <boost/filesystem.hpp>
+class Mod1 {
 
-// using namespace boost::filesystem;
+private:
 
-// typedef std::string 		String;
-// // typedef boost::filesystem 	File;
+	ListPoint 			* _map;
 
-// /* checkfile.cpp */
+public:
+	Mod1(void);
+	Mod1(Mod1 const & src);
+	virtual ~Mod1(void);
+	
+	Mod1 const 			& operator=(Mod1 const & rhs);
 
-// void				checkfile(String filepath);
+	ListPoint const 	& getMap(void) const;
+
+	void 				setMap(ListPoint * map);
+};
