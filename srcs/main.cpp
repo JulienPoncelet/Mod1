@@ -9,6 +9,7 @@ int 					main(int ac, char ** av) {
 		try {
 			checkfile(av[i]); // test extension / presence
 			mod1->setMapFromFile(av[i]);
+			mod1->printMap();
 		}
 		catch (std::exception &e) {
 			std::cout << e.what() << std::endl;

@@ -1,6 +1,8 @@
 #include <main.hpp>
 
 Mod1::Mod1(void) {
+	Map 			* newMap = new Map();
+	setMap(newMap);
 	return ;
 }
 
@@ -37,9 +39,9 @@ void				Mod1::setMapFromFile(std::string file) {
 		subBuffer = buffer.substr(0, buffer.find(' '));
 
 		if (not buffer[0] == '(') // Need to start by '('
-			std::cout << "ERROR" << std::endl;;
+			throw SyntaxError();
 		if (not buffer[buffer.size()] == ')') // Need to end with ')'
-			std::cout << "ERROR" << std::endl;;
+			throw SyntaxError();
 
 		subBuffer = subBuffer.substr(1, subBuffer.size() - 2); // Remove ()
 
@@ -49,15 +51,38 @@ void				Mod1::setMapFromFile(std::string file) {
 			if (subBuffer[i] == ',')
 				commaCount++;
 			else if (not isdigit(subBuffer[i]))
-				std::cout << "ERROR" << std::endl;
+				throw DigitError();
 		}
 
 		if (commaCount != 2)
-			std::cout << "ERROR" << std::endl;
+			throw CommaError();
+
+		Point		* newPoint = new Point;
+
+		newPoint->x = atoi(subBuffer.substr(0, subBuffer.find(',')).c_str());
+		subBuffer = subBuffer.substr(subBuffer.find(',') + 1);
+		newPoint->y = atoi(subBuffer.substr(0, subBuffer.find(',')).c_str());
+		subBuffer = subBuffer.substr(subBuffer.find(',') + 1);
+		newPoint->z = atoi(subBuffer.c_str());
+
+		getMap()->push_back(newPoint);
 
 		buffer = buffer.substr(buffer.find(' ') + 1);
-		// break;
 	}
 
 	return ;
+}
+
+void				Mod1::printMap(void) const {
+	Map::iterator 	it = getMap()->begin();
+	Map::iterator 	ite = getMap()->end();
+	int 			i = 0;
+
+	for (; it != ite; it++) {
+		std::cout << "Point " << i << ":";
+		std::cout << " X = " << (*it)->x;
+		std::cout << " Y = " << (*it)->y;
+		std::cout << " Z = " << (*it)->z << std::endl;
+    	i++;
+	}
 }

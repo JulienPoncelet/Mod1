@@ -12,6 +12,7 @@ public:
 	Mod1 const 			& operator=(Mod1 const & rhs);
 
 	void				setMapFromFile(std::string file);
+	void				printMap(void) const;
 
 	Map 			 	* getMap(void) const;
 
