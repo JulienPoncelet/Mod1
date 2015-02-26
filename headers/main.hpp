@@ -1,10 +1,12 @@
 #ifndef MAIN_HPP
 # define MAIN_HPP
 
-class 						Map;
+class 						Mod1;
 
 # include <iostream>
 # include <sys/stat.h>
+# include <list>
+# include <fstream>
 
 struct Point {
 	int 					x;
@@ -13,11 +15,10 @@ struct Point {
 };
 
 typedef std::string 		String;
-typedef std::list<Point> 	ListPoint;
+typedef std::list<Point> 	Map;
 
 # include <mod1.hpp>
 # include <mod1_exceptions.hpp>
-# include <map.hpp>
 
 /* checkfile.cpp */
 

@@ -2,7 +2,7 @@ class Mod1 {
 
 private:
 
-	ListPoint 			* _map;
+	Map 				* _map;
 
 public:
 	Mod1(void);
@@ -11,7 +11,10 @@ public:
 	
 	Mod1 const 			& operator=(Mod1 const & rhs);
 
-	ListPoint const 	& getMap(void) const;
+	void				setMapFromFile(std::string file);
 
-	void 				setMap(ListPoint * map);
+	Map 			 	* getMap(void) const;
+
+	void 				setMap(Map * map);
+	
 };

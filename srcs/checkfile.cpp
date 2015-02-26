@@ -9,6 +9,6 @@ void				checkfile(String filepath) {
 	if (filepath.substr(filepath.find_last_of(".") + 1) != "mod1")
 		throw WrongExtension();
 
-	std::cout << "\033[032mFile " << filepath << " successfully checked" << std::endl;
+	std::cout << "\033[032mFile " << filepath << " successfully checked\033[0m" << std::endl;
 	return ;
 }

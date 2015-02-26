@@ -4,7 +4,8 @@ DIRSRC = ./srcs/
 DIROBJ = ./.obj/
 
 SRC  = 	main.cpp\
-		checkfile.cpp
+		checkfile.cpp\
+		mod1.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
